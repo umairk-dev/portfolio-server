@@ -6,12 +6,15 @@ const db = require('./db')
 const projectRouter = require('./routes/project-router')
 
 const app = express()
-const apiPort = 3000
+const apiPort = 4000
 
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
+
+app.use('/static', express.static('assets'))
+
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
